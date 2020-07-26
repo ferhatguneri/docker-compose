@@ -37,7 +37,7 @@ services:
       volumes:
           - '/opt/rancher:/var/lib/rancher'
           - '/var/log/rancher/auditlog:/var/log/auditlog'
-          - '/dsmart/ssl/cacerts.pem:/etc/rancher/ssl/cacerts.pem'
-          - '/dsmart/ssl/key.pem:/etc/rancher/ssl/key.pem'
-          - '/dsmart/ssl/cert.pem:/etc/rancher/ssl/cert.pem'
+          - '/opt/rancher/ssl/cacerts.pem:/etc/rancher/ssl/cacerts.pem'
+          - '/opt/rancher/ssl/key.pem:/etc/rancher/ssl/key.pem'
+          - '/opt/rancher/ssl/cert.pem:/etc/rancher/ssl/cert.pem'
       image: 'rancher/rancher:latest'
