@@ -1,0 +1,18 @@
+#MySQL 8.0 Docker Compose File
+version: '3.3'
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'dbname'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+      TZ: Europe/Istanbul
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - '/var/lib/mysql-in-docker:/var/lib/mysql'

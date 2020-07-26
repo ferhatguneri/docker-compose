@@ -1,0 +1,22 @@
+version: '3'
+services:
+#Gitlab Server
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: "dsgitlabsrv01"
+    restart: always
+    hostname: 'dsgitlabsrv01'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.company.com'
+        unicorn['worker_timeout'] = 120
+        unicorn['worker_processes'] = 2
+    ports:
+      - 80:80
+      - 443:443
+      - 22:22
+    volumes:
+      - /gitlab/conf:/etc/gitlab
+      - /gitlab/ssl:/etc/ssl/certs/gitlab
+      - /gitlab/logs:/var/log/gitlab
+      - /gitlab/main:/var/opt/gitlab

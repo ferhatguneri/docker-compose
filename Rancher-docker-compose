@@ -1,0 +1,43 @@
+###Install by docker run
+
+docker run -d --restart=unless-stopped \
+  -p 80:80 -p 443:443 \
+  -v /opt/rancher:/var/lib/rancher \
+  rancher/rancher:latest
+  
+  
+ 
+###Install by docker-compose  
+docker-compose.yml
+  
+version: '3.3'
+services:
+    rancher:
+        restart: unless-stopped
+        ports:
+            - '80:80'
+            - '443:443'
+        volumes:
+            - '/opt/rancher:/var/lib/rancher'
+        image: 'rancher/rancher:latest'
+
+
+
+###Install by docker-compose  With SSL Certificate
+version: '3.3'
+services:
+  rancher:
+      restart: unless-stopped
+      container_name: rancher
+      ports:
+          - '80:80'
+          - '443:443'
+      environment:
+          - AUDIT_LEVEL=1
+      volumes:
+          - '/opt/rancher:/var/lib/rancher'
+          - '/var/log/rancher/auditlog:/var/log/auditlog'
+          - '/dsmart/ssl/cacerts.pem:/etc/rancher/ssl/cacerts.pem'
+          - '/dsmart/ssl/key.pem:/etc/rancher/ssl/key.pem'
+          - '/dsmart/ssl/cert.pem:/etc/rancher/ssl/cert.pem'
+      image: 'rancher/rancher:latest'

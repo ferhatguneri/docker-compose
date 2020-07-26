@@ -1,0 +1,13 @@
+#Redis Docker Compose File
+version: '3.3'
+services:
+  redis:
+    container_name: redis
+    image: redis
+    environment:
+     TZ: Europe/Istanbul
+    volumes:
+      - '/var/lib/redis-in-docker/data:/data'
+    ports:
+      - '6380:6379'
+

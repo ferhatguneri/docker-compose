@@ -1,0 +1,59 @@
+version: '3.3'
+services:
+
+#Teamcity Server
+  teamcity:
+    image: jetbrains/teamcity-server:2020.1.2
+    hostname: teamcity
+    restart: always
+    container_name: teamcity
+    environment:
+      - TZ=Europe/Istanbul
+    volumes:
+      - '/var/lib/teamcity/server:/data/teamcity_server/datadir'
+      - '/var/log/teamcity-server:/opt/teamcity/logs'
+    ports:
+      - 8111:8111
+
+
+# Docker in Docker Teamcity Agent
+  teamcity-agent1:
+    image: jetbrains/teamcity-agent:2020.1.2
+    restart: always
+    volumes:
+      - '/var/lib/teamcity/agent1:/var/lib/docker'
+    environment:
+      - SERVER_URL=http://teamcity:8111
+      - AGENT_NAME=docker_agent1
+      - DOCKER_IN_DOCKER=start
+      - TZ=Europe/Istanbul
+    privileged: true
+
+# Docker in Docker Teamcity Agent
+
+  teamcity-agent2:
+    image: jetbrains/teamcity-agent:2020.1.2
+    restart: always
+    volumes:
+      - '/var/lib/teamcity/agent2:/var/lib/docker'
+    environment:
+      - SERVER_URL=http://teamcity:8111
+      - AGENT_NAME=docker_agent2
+      - DOCKER_IN_DOCKER=start
+      - TZ=Europe/Istanbul
+    privileged: true
+
+
+# Docker in Docker Teamcity Agent
+  teamcity-agent3:
+    image: jetbrains/teamcity-agent:2020.1.2
+    restart: always
+    volumes:
+      - '/var/lib/teamcity/agent3:/var/lib/docker'
+    environment:
+      - SERVER_URL=http://teamcity:8111
+      - AGENT_NAME=docker_agent3
+
+      - DOCKER_IN_DOCKER=start
+      - TZ=Europe/Istanbul
+    privileged: true
