@@ -1,7 +1,5 @@
 # Example Docker Compose Files
 
-## Yaml Files
-
 Elasticsearch Logastah Kibana version 7.6.2 Docker Compose File
 
 Gitlab-CE Latest Compose File
