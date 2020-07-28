@@ -6,7 +6,7 @@ Gitlab-CE Latest Compose File
 
 3 Kafka, 1 Zookeeper and Management UI Compose File
 
-MongoDB Latest Compose File
+MongoDB Latest Compose File // Login mongo if used credential $ mongo admin -u root -p rootpassword
 
 Mysql 8.0  Compose File
 
