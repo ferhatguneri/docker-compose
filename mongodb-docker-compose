@@ -6,7 +6,7 @@ services:
 #Optional you can secure your mongo by following environment variables
 #    environment:
 #      MONGO_INITDB_ROOT_USERNAME: root
-#      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+#      MONGO_INITDB_ROOT_PASSWORD: G3n1u5P@55w0rd
     ports:
       - 27017:27017
     volumes:
