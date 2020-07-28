@@ -1,7 +1,7 @@
 #MongoDB Docker Compose File
 version: '3.7'
 services:
-  mongodb_container:
+  mongodb:
     image: mongo:latest
 
 #Optional you can secure your mongo by following environment variables
