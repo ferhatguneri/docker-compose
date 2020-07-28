@@ -6,6 +6,8 @@ Gitlab-CE Latest Compose File
 
 3 Kafka, 1 Zookeeper and Management UI Compose File
 
+MongoDB Latest Compose File
+
 Mysql 8.0  Compose File
 
 RabbitMQ Compose File
