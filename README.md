@@ -16,6 +16,8 @@ Rancher Latest Compose File
 
 Redis Latest Compose File
 
+Docker Registry Compose File
+
 Teamcity Server and 3 DOCKER_IN_DOCKER Teamcity Agent version  2020.1.2 Docker Compose File
 
 
