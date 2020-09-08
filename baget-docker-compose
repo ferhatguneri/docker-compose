@@ -1,0 +1,11 @@
+#Baget Server
+version: '3'
+services:
+  baget:
+    container_name: "nuget-server"
+    ports:
+      - '5000:5000'
+    volumes:
+      - /var/lib/baget-data:/var/baget
+    image: 'loicsharma/baget:19dc5c514fcbfdeda0c06d67b526744733d827bb'
+    
