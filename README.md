@@ -2,6 +2,8 @@
 
 Elasticsearch Logastah Kibana version 7.6.2 Docker Compose File
 
+Baget Server Compose File
+
 Gitlab-CE Latest Compose File
 
 3 Kafka, 1 Zookeeper and Management UI Compose File
