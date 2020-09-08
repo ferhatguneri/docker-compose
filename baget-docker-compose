@@ -2,6 +2,8 @@
 version: '3'
 services:
   baget:
+    env_file:
+    - ./baget.env
     container_name: "nuget-server"
     ports:
       - '5000:5000'
@@ -9,3 +11,16 @@ services:
       - /var/lib/baget-data:/var/baget
     image: 'loicsharma/baget:19dc5c514fcbfdeda0c06d67b526744733d827bb'
     
+
+
+You have to create baget.env file in same directory and add below configuration
+
+# The following config is the API Key used to publish packages.
+# You should change this to a secret value to secure your server.
+ApiKey=NUGET-SERVER-API-KEY
+
+Storage__Type=FileSystem
+Storage__Path=/var/baget/packages
+Database__Type=Sqlite
+Database__ConnectionString=Data Source=/var/baget/baget.db
+Search__Type=Database
