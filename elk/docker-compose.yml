@@ -1,6 +1,5 @@
-version: '2'
+version: '3.7'
 services:
-
   elasticsearch:
     hostname: elasticsearch
     image: elasticsearch:7.6.2
@@ -10,12 +9,11 @@ services:
       - "9200:9200"
       - "9300:9300"
     environment:
-      - ES_HEAP_SIZE=1G
+      - ES_HEAP_SIZE=2G
       - TZ=Europe/Istanbul
     volumes:
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - "elasticdata:/usr/share/elasticsearch/data"
-
 
   kibana:
     image: kibana:7.6.2
@@ -29,7 +27,6 @@ services:
     depends_on:
       - elasticsearch
 
-
   logstash:
     hostname: logstash
     image: logstash:7.6.2
@@ -40,9 +37,8 @@ services:
     ports:
       - "5044:5044"
     environment:
-      - LS_JAVA_OPTS=-Xmx256m -Xms256m
+      - LS_JAVA_OPTS=-Xmx1024m -Xms1024m
       - TZ=Europe/Istanbul
 
 volumes:
   elasticdata:
-
