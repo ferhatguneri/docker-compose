@@ -4,7 +4,7 @@ docker run -d --restart=unless-stopped \
   -p 80:80 -p 443:443 \
   -v /opt/rancher:/var/lib/rancher \
   --privileged \
-  rancher/rancher:latest
+  rancher/rancher:v2.5.15
   
   
  
@@ -21,7 +21,7 @@ services:
             - '443:443'
         volumes:
             - '/opt/rancher:/var/lib/rancher'
-        image: 'rancher/rancher:latest'
+        image: 'rancher/rancher:v2.5.15'
 
 
 
@@ -43,4 +43,4 @@ services:
           - '/opt/rancher/ssl/cacerts.pem:/etc/rancher/ssl/cacerts.pem'
           - '/opt/rancher/ssl/key.pem:/etc/rancher/ssl/key.pem'
           - '/opt/rancher/ssl/cert.pem:/etc/rancher/ssl/cert.pem'
-      image: 'rancher/rancher:latest'
+      image: 'rancher/rancher:v2.5.15'
